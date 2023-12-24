@@ -26,7 +26,17 @@
                         row-cols-xl-2 
                         justify-content-center">
                         <div class="col text-center mb-3 mb-md-5">
-                            <label for="height" class="fs-3"></label>
+                            <label for="height" class="fs-3">ส่วนสูง</label>
+                            <div class="input-group">
+                                <input id="height" class="form-control form-control-custom w-50" name="height" type="number" step="any" value="<?php if (!empty($height)) {echo $height;} ?>">
+                            <select class="form-select w-50" name="heightunit" >
+                            <option value="centimeter" >เซนติเมตร</option>
+                            <option value="inch" >นิ้ว</option>
+                            <option value="foot" >ฟุต</option>
+                            <option value="meter" >เมตร</option>
+
+
+                            </select>
 
                         </div>
 

@@ -11,33 +11,31 @@
 
 <body>
 
-    <div class="">
-        <h1>ดัชนีมวลกายทองคำ</h1>
-        <form method="post" action="" clasS="">
-            <div class="">
-                <div class="">
-                    <label>น้ำหนักตัว (kg.)</label>
-                    <input type="number" placeholder="" class="">
-                </div>
-                <div class="">
-                    <label>ส่วนสูง (cm.)</label>
-                    <input type="number" n placeholder="" class="">
-                </div>
+    <div class="container " style="max-width:800px">
+        <div class="text-center mb-5">
+            <h1 class="fw-bolder mb-0">ดัชนีมวลกายทองคำ</h1>
+        </div>
 
-                <div class="b-btn">
-                    <a href="#" class="btn btn-outline-success">
-                        <span>คำนวณ</span>
-                    </a>
-                </div>
+        <form method="post" action="" class="">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="row row-cols-1 
+                        row-cols-sm-2 
+                        row-cols-md-2 
+                        row-cols-lg-2 
+                        row-cols-xl-2 
+                        justify-content-center">
+                        <div class="col text-center mb-3 mb-md-5">
+                            <label for="height" class="fs-3"></label>
 
-                <div class="b-cal-result bmi-result">
-                    <div class="inner">
-                        <p class="result-text">BMI</p>
-                        <p class="bmi-value result-value" data-bmi="0">0</p>
+                        </div>
+
                     </div>
                 </div>
-
             </div>
+
+
+
         </form>
     </div>
 

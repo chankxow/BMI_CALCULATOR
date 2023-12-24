@@ -1,3 +1,5 @@
+<?php require('calculate.php'); ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -17,36 +19,73 @@
         </div>
 
         <form method="post" action="" class="">
-            <div class="row justify-content-center">
-                <div class="col">
-                    <div class="row row-cols-1 
-                        row-cols-sm-2 
-                        row-cols-md-2 
-                        row-cols-lg-2 
-                        row-cols-xl-2 
-                        justify-content-center">
+            <div class=" justify-content-center">
+                <div class="col ">
+                    <div class="p-4 shadow-lg 
+                        justify-content-center
+                        ">
                         <div class="col text-center mb-3 mb-md-5">
-                            <label for="height" class="fs-3">ส่วนสูง</label>
+                            <label for="height" class="fs-3 mb-3">ส่วนสูง</label>
                             <div class="input-group">
-                                <input id="height" class="form-control form-control-custom w-50" name="height" type="number" step="any" value="<?php if (!empty($height)) {echo $height;} ?>">
-                            <select class="form-select w-50" name="heightunit" >
-                            <option value="centimeter" >เซนติเมตร</option>
-                            <option value="inch" >นิ้ว</option>
-                            <option value="foot" >ฟุต</option>
-                            <option value="meter" >เมตร</option>
+                                <input id="height" class=" form-control form-control-custom w-50" name="height" type="number" step="any" value="<?php if (!empty($height)) {
+                                                                                                                                                    echo $height;
+                                                                                                                                                } ?>">
 
-
-                            </select>
+                                <div class="form-floating">
+                                    <select class="form-select" name="heightunit">
+                                        <option value="centimeter">เซนติเมตร</option>
+                                        <option value="inch">นิ้ว</option>
+                                        <option value="foot">ฟุต</option>
+                                        <option value="meter">เมตร</option>
+                                    </select>
+                                    <label for="floatingSelect">คลิกเพื่อเลือกหน่วย</label>
+                                </div>
+                            </div>
 
                         </div>
 
+                        <div class="col text-center mb-3 mb-md-4 ">
+                            <label for="weight" class="fs-3 mb-3">น้ำหนัก</label>
+                            <div class="input-group ">
+                                <input id="weight" class="form-control form-control-custom w-50" name="weight" type="number" step="any" value="<?php if (!empty($weight)) {
+                                                                                                                                                    echo $weight;
+                                                                                                                                                } ?>">
+                                <div class="form-floating">
+                                    <select class="form-select" name="weightunit">
+                                        <option value="kilogram">กิโลกรัม</option>
+                                        <option value="pound">ปอนด์</option>
+                                    </select>
+                                    <label for="floatingSelect">คลิกเพื่อเลือกหน่วย</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col text-center mb-3 mb-md-4"><input type="submit" name="submit" value="คำนวณ" class="btn btn-outline-primary"></div>
+
                     </div>
                 </div>
-            </div>
 
 
 
         </form>
+        <?php if (isset($bmiindex) && is_numeric($bmiindex)) { ?> <!-- Result -->
+            <div class="row justify-content-center">
+                <div class="col text-center">
+                    <label for="Result" class="fs-4">Result</label>
+                    <input id="Result" name="Result" class="form-control form-control-custom" value="<?php echo $bmiindex . ' ' . $message; ?>">
+                </div>
+            </div>
+        <?php }
+        if (isset($error)) { ?><!-- Error Messages -->
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="alert alert-danger shadow-sm" role="alert">Error: <?php echo $error; ?></div>
+                </div>
+            </div>
+        <?php } ?>
+
+
+
+
     </div>
 
 

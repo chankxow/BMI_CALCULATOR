@@ -1,4 +1,4 @@
-<?php require('calculate.php'); ?>
+<?php include('calculate.php'); ?>
 
 <!doctype html>
 <html lang="en">

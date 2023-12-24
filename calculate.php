@@ -12,35 +12,24 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     } else {
         $hinches = ($heightunit == 'centimeter') ? $height * 0.393701 : (($heightunit == 'foot') ? $height * 12 : (($heightunit == 'meter') ? $height * 39.3700787 : $height));
         $wpound = ($weightunit = 'kilogram') ? $weight * 2.2 : $weight;
-        $bmiindex = round($wpound / ($hinches * $hinches) * 7.3, 2);
+        $bmiindex = round($wpound / ($hinches * $hinches) * 703, 2);
 
         if ($bmiindex < 18.5) {
-            $message = "น้ำหนักต่ำกว่าเกณฑ์";
+            $message = "น้ำหนักน้อยกว่า 18.50";
+            $warning = "น้ำหนักน้อยกว่ามาตรฐาน
+            คุณมีน้ำหนักน้อยหรือผอม โดยทั่วไป ค่าดัชนีมวลกายปกติมีค่าน้อยกว่า 18.50
+            ข้อแนะนำ
+            1. กรณีกินเยอะแต่ไม่อ้วน ก็ต้องระวังเรื่องคุณภาพของอาหารที่กินเข้าไปด้วย เลือกกินอาหารที่ดี มีประโยชน์ ลดหวาน มัน เค็ม และหลีกเลี่ยงอาหารที่มีไขมันสูง เพราะอาจเพิ่มความเสี่ยงต่อการเป็นโรคเบาหวาน ความดันเลือดสูง ไขมันในเลือดสูง หรือผอมลงพุงได้
+            2. เลือกกินอาหารให้หลากหลายครบ 5 หมู่ โดยเน้นอาหารที่มีโปรตีน เพื่อช่วยในการเสริมสร้างกล้ามเนื้อ หากต้องการเพิ่มน้ำหนัก ให้ไม่ผอมจนเกินไป ให้เพิ่มปริมาณการกินอาหารประมาณ 300-500 กิโลแคลอรี โดยเน้นการกินอาหารที่มีประโยชน์ คาร์โบไฮเดรตเชิงซ้อน และไขมันดี
+            3. เคลื่อนไหว และออกกำลังกายสม่ำเสมอ ระดับความหนักปานกลาง โดยเลือกกิจกรรมการออกกำลังกายที่ชื่นชอบและสนุกสนาน เพื่อส่งเสริมให้อยากออกกำลังกาย ลดความเบื่อหน่าย เช่น การเต้นเข้าจังหวะ เดิน วิ่ง ว่ายน้ำ หรือกิจกรรมออกแรง ขยับร่างกายในชีวิตประจำวัน อย่างการทำงานบ้าน การทำสวน เป็นต้น แนะนำให้ออกกำลังกาย อย่างน้อยวันละ 30 นาที หรือ ไม่น้อยกว่า 150 นาทีต่อสัปดาห์";
         } else if ($bmiindex <= 24.90) {
-            $message = "น้ำหนักปกติ";
-        } else if ($bmiindex <= 29.9) {
-            $message = "น้ำหนักเกินเกณฑ์";
+            $message = "ปกติ (สุขภาพดี)";
+        } else if ($bmiindex <= 23) {
+            $message = "ท้วม / โรคอ้วนระดับ 1";
+        } else if ($bmiindex <= 25) {
+            $message = "อ้วน / โรคอ้วนระดับ 2";
         } else {
-            $message = "คุณอ้วนมากก";
+            $message = "อ้วนมาก / โรคอ้วนระดับ 3";
         }
-    }
-    if (isset($heightunit) && $heightunit == 'centimeter') {
-        echo "selected";
-    }
-    if (isset($heightunit) && $heightunit == 'inch' || !isset($heightunit)) {
-        echo "selected";
-    }
-    if (isset($heightunit) && $heightunit == 'foot' || !isset($heightunit)) {
-        echo "selected";
-    }
-    if (isset($heightunit) && $heightunit == 'meter' || !isset($heightunit)) {
-        echo "selected";
-    }
-
-    if (isset($weightunit) && $weightunit == 'kilogram') {
-        echo "selected";
-    }
-    if (isset($weightunit) && $weightunit == 'pound') {
-        echo "selected";
     }
 }

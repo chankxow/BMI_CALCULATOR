@@ -13,15 +13,15 @@
 
 <body>
 
-    <div class="container " style="max-width:800px">
-        <div class="text-center mb-5">
+    <div class="container " style="max-width:800px ">
+        <div class="text-center mb-5 ">
             <h1 class="fw-bolder mb-0">ดัชนีมวลกายทองคำ</h1>
         </div>
 
-        <form method="post" action="" class="">
+        <form method="post" action="" class="shadow-lg p-4">
             <div class=" justify-content-center">
                 <div class="col ">
-                    <div class="p-4 shadow-lg 
+                    <div class="  
                         justify-content-center
                         ">
                         <div class="col text-center mb-3 mb-md-5">
@@ -65,23 +65,24 @@
                 </div>
 
 
-
+                <?php if (isset($bmiindex) && is_numeric($bmiindex)) { ?> <!-- Result -->
+                    <div class="row justify-content-center">
+                        <div class="col text-start">
+                            <label for="Result" class="fs-4">ผลลัพธ์</label>
+                            <p id="Result" name="Result" class="fs-3" ><?php echo 'ค่า BMI ของคุณคือ'. $bmiindex . ' คุณ ' . $message; ?></p>
+                            <p id="Result" name="Result" class="fs-4" ><?php echo  $warning; ?></p>
+                        </div>
+                    </div>
+                <?php }
+                if (isset($error)) { ?><!-- Error Messages -->
+                    <div class="row justify-content-center">
+                        <div class="col">
+                            <div class="alert alert-danger shadow-sm" role="alert">Error: <?php echo $error; ?></div>
+                        </div>
+                    </div>
+                <?php } ?>
         </form>
-        <?php if (isset($bmiindex) && is_numeric($bmiindex)) { ?> <!-- Result -->
-            <div class="row justify-content-center">
-                <div class="col text-center">
-                    <label for="Result" class="fs-4">Result</label>
-                    <input id="Result" name="Result" class="form-control form-control-custom" value="<?php echo $bmiindex . ' ' . $message; ?>">
-                </div>
-            </div>
-        <?php }
-        if (isset($error)) { ?><!-- Error Messages -->
-            <div class="row justify-content-center">
-                <div class="col">
-                    <div class="alert alert-danger shadow-sm" role="alert">Error: <?php echo $error; ?></div>
-                </div>
-            </div>
-        <?php } ?>
+
 
 
 
